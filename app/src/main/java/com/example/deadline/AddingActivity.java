@@ -2,6 +2,7 @@ package com.example.deadline;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.ContentValues;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
+import java.util.Locale;
 
 public class AddingActivity extends AppCompatActivity {
 
@@ -27,7 +29,10 @@ public class AddingActivity extends AppCompatActivity {
     Button time;
     Button save;
 
+    DatePickerDialog datePickerDialog;
+
     Calendar dateAndTime = Calendar.getInstance();
+    int hour, minute;
 
     DatabaseHelper sqlHelper;
     SQLiteDatabase db;
@@ -46,19 +51,21 @@ public class AddingActivity extends AppCompatActivity {
         time = findViewById(R.id.Time);
         save = findViewById(R.id.save);
 
+        initDatePicker();
         data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setDatePickerDialogAfter(data);
+                openDatePicker(data);
             }
         });
 
         time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                setTimePicker(time);
             }
         });
+
 
     }
 
@@ -75,64 +82,70 @@ public class AddingActivity extends AppCompatActivity {
 
     }
 
-    // установка начальных даты и времени
-    private void setInitialDateTime(TextView textView) {
-
-        textView.setText(DateUtils.formatDateTime(this,
-                dateAndTime.getTimeInMillis(), DateUtils.FORMAT_SHOW_TIME));
+    private String getTodaysDate()
+    {
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        month = month + 1;
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        return makeDateString(day, month, year);
     }
 
-    // метод для выбора времени
-//    public void setTimePickerDialog(TextView textView) {
-//        TimePickerDialog timePickerDialog = new TimePickerDialog(AddingActivity.this,
-//                // тема spinner
-//                android.R.style.Theme_Holo_Light_Dialog_NoActionBar,
-//                (tp, sHour, sMinute) -> {
-//                    dateAndTime.set(Calendar.HOUR_OF_DAY, sHour);
-//                    dateAndTime.set(Calendar.MINUTE, sMinute);
-//                    setInitialDateTime(textView);
-//                }, 2, 3, false);
-//        timePickerDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-//        timePickerDialog.show();
-//
-//         установка обработчика выбора времени
-//        TimePickerDialog.OnTimeSetListener t=new TimePickerDialog.OnTimeSetListener() {
-//            public void onTimeSet(TimePicker view, int hourOfDay, int minute, boolean is24HourView) {
-//                dateAndTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
-//                dateAndTime.set(Calendar.MINUTE, minute);
-//                setInitialDateTime(textView);
-//            }
-//        };
-//
-//
-//    }
-    int DIALOG_TIME = 1;
-    int myHour = 14;
-    int myMinute = 35;
-    TimePickerDialog.OnTimeSetListener myCallBack = new TimePickerDialog.OnTimeSetListener() {
-        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            myHour = hourOfDay ;
-            myMinute = minute;
-            time.setText("Time is " + myHour + " hours " + myMinute + " minutes");
-        }
-    };
-
-
-
-    //метод для выбора начальной даты
-    public void setDatePickerDialogAfter(TextView textView2) {
-        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
-
+    private void initDatePicker()
+    {
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener()
+        {
             @Override
-            public void onDateSet(DatePicker view, int year,
-                                  int monthOfYear, int dayOfMonth) {
-
-                textView2.setText(dayOfMonth + "." + (monthOfYear + 1) + "." + year);
-
+            public void onDateSet(DatePicker datePicker, int year, int month, int day)
+            {
+                month = month + 1;
+                String date = makeDateString(day, month, year);
+                data.setText(date);
             }
         };
 
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+        int style = AlertDialog.THEME_DEVICE_DEFAULT_LIGHT;
+
+        datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
+        //datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+
     }
+
+    private String makeDateString(int day, int month, int year)
+    {
+        return month + "." + day + "." + year;
+    }
+
+    public void openDatePicker(View view)
+    {
+        datePickerDialog.show();
+    }
+
+    public void setTimePicker(TextView textView) {
+        TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                hour = selectedHour;
+                minute = selectedMinute;
+                textView.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
+            }
+        };
+
+        int style = AlertDialog.THEME_HOLO_LIGHT;
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, style, onTimeSetListener, hour, minute, true);
+
+        timePickerDialog.setTitle("До какого времени");
+        timePickerDialog.show();
+
+    }
+
 
     private void getToMainRes(){
         // закрываем подключение

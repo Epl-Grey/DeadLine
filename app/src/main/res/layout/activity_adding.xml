@@ -84,12 +84,13 @@
             android:id="@+id/save"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:text="Сохранить"
-            android:fontFamily="@font/value"
-            android:textSize="20sp"
+            android:layout_marginLeft="45dp"
             android:layout_marginTop="650dp"
             android:layout_marginRight="45dp"
-            android:layout_marginLeft="45dp"/>
+            android:fontFamily="@font/value"
+            android:text="Сохранить"
+            android:onClick="saveToDb"
+            android:textSize="20sp" />
 
 
     </RelativeLayout>
