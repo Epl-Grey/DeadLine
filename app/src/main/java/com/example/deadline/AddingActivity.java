@@ -17,6 +17,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -66,19 +67,6 @@ public class AddingActivity extends AppCompatActivity {
             }
         });
 
-
-    }
-
-    public void saveToDb(View view) {
-
-        ContentValues values = new ContentValues();
-        values.put(DatabaseHelper.COLUMN_NAME, name.getText().toString());
-        values.put(DatabaseHelper.COLUMN_DATE, data.getText().toString());
-        values.put(DatabaseHelper.COLUMN_TIME, time.getText().toString());
-
-
-        db.insert(DatabaseHelper.TABLE, null, values);
-        getToMainRes();
 
     }
 
@@ -146,6 +134,22 @@ public class AddingActivity extends AppCompatActivity {
 
     }
 
+    public void saveToDb(View view) {
+
+        ContentValues values = new ContentValues();
+        values.put(DatabaseHelper.COLUMN_NAME, name.getText().toString());
+        values.put(DatabaseHelper.COLUMN_DATE, data.getText().toString());
+        values.put(DatabaseHelper.COLUMN_TIME, time.getText().toString());
+        values.put(DatabaseHelper.COLUMN_INFO, description.getText().toString());
+
+        Toast toast = Toast.makeText(getApplicationContext(),
+                description.getText().toString(), Toast.LENGTH_SHORT);
+        toast.show();
+
+        db.insert(DatabaseHelper.TABLE, DatabaseHelper.COLUMN_INFO, values);
+        getToMainRes();
+
+    }
 
     private void getToMainRes(){
         // закрываем подключение

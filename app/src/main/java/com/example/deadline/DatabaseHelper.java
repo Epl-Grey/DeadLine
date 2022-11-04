@@ -13,10 +13,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_DATE = "date";
     public static final String COLUMN_TIME = "time";
+    public static final String COLUMN_INFO = "info";
 
 
     public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 3);
+        super(context, DATABASE_NAME, null, 5);
     }
 
     @Override
@@ -26,7 +27,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + COLUMN_NAME + " TEXT, "
                 + COLUMN_DATE + " TEXT, "
-                + COLUMN_TIME + " TEXT );");
+                + COLUMN_TIME + " TEXT, "
+                + COLUMN_INFO + " TEXT );");
 
 //        //добавление начальных данных
 //        db.execSQL("INSERT INTO "+ TABLE +" ("
