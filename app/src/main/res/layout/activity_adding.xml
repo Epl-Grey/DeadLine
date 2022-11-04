@@ -19,8 +19,77 @@
             android:gravity="center"
             android:fontFamily="@font/texttime"/>
 
+        <EditText
+            android:id="@+id/edit_Text"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="45dp"
+            android:autofillHints="name"
+            android:hint="Ваша задача"
+            android:textColorHint="@color/black" />
+
+        <TextView
+            android:layout_width="160dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="120dp"
+            android:gravity="start"
+            android:text="До какого"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/Data"
+            android:layout_width="140dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="215dp"
+            android:layout_marginTop="120dp"
+            android:text="Числа"
+            android:textSize="20sp" />
 
 
+        <TextView
+            android:layout_width="160dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="170dp"
+            android:gravity="start"
+            android:text="До какого"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/Time"
+            android:layout_width="140dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="215dp"
+            android:layout_marginTop="170dp"
+            android:text="времени"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="220dp"
+            android:layout_marginRight="45dp"
+            android:hint="Описание"
+            android:textColorHint="@color/black" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/save"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="Сохранить"
+            android:fontFamily="@font/value"
+            android:textSize="20sp"
+            android:layout_marginTop="650dp"
+            android:layout_marginRight="45dp"
+            android:layout_marginLeft="45dp"/>
 
 
     </RelativeLayout>
