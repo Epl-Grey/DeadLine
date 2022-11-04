@@ -31,6 +31,13 @@
             android:layout_marginLeft="330dp"
             />
 
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            />
+
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
