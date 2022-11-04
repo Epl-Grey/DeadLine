@@ -14,10 +14,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="DeadLine"
-            android:textSize="40sp"
             android:gravity="center"
-            android:textColor="@color/black"/>
+            android:text="DeadLine"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:fontFamily="@font/texttime"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/adding"
