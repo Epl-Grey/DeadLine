@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -19,6 +19,17 @@
             android:gravity="center"
             android:textColor="@color/black"/>
 
-    </LinearLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/adding"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:text="+"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="650dp"
+            android:layout_marginLeft="330dp"
+            />
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
