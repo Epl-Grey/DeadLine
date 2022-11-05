@@ -7,13 +7,18 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
+
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -27,11 +32,14 @@ public class AddingActivity extends AppCompatActivity {
 
     DatePickerDialog datePickerDialog;
 
-    int hour;
-    int minute;
+    Calendar dateAndTime = Calendar.getInstance();
+    int hour, minute;
 
     DatabaseHelper sqlHelper;
     SQLiteDatabase db;
+    Cursor userCursor;
+    long userId = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,20 +56,34 @@ public class AddingActivity extends AppCompatActivity {
         save = findViewById(R.id.save);
 
         initDatePicker();
-        data.setOnClickListener(view -> openDatePicker(data));
+        data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openDatePicker(data);
+            }
+        });
 
-        time.setOnClickListener(view -> setTimePicker(time));
+        time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setTimePicker(time);
+            }
+        });
 
 
     }
 
-
     private void initDatePicker()
     {
-        DatePickerDialog.OnDateSetListener dateSetListener = (datePicker, year, month, day) -> {
-            month = month + 1;
-            String date = makeDateString(day, month, year);
-            data.setText(date);
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener()
+        {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day)
+            {
+                month = month + 1;
+                String date = makeDateString(day, month, year);
+                data.setText(date);
+            }
         };
 
         Calendar cal = Calendar.getInstance();
@@ -87,10 +109,13 @@ public class AddingActivity extends AppCompatActivity {
     }
 
     public void setTimePicker(TextView textView) {
-        TimePickerDialog.OnTimeSetListener onTimeSetListener = (timePicker, selectedHour, selectedMinute) -> {
-            hour = selectedHour;
-            minute = selectedMinute;
-            textView.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
+        TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                hour = selectedHour;
+                minute = selectedMinute;
+                textView.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
+            }
         };
 
         int style = AlertDialog.THEME_HOLO_LIGHT;
