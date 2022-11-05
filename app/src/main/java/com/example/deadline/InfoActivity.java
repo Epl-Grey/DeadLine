@@ -33,11 +33,10 @@ public class InfoActivity extends AppCompatActivity {
 
         sqlHelper = new DatabaseHelper(this);
         db = sqlHelper.getWritableDatabase();
+        MainActivity mainActivity = new MainActivity();
+            userId = mainActivity.userId;
+        System.out.println(userId);
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            userId = extras.getLong("id");
-        }
 
         userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE + " where " +
                 DatabaseHelper.COLUMN_ID + "=?", new String[]{String.valueOf(userId)});

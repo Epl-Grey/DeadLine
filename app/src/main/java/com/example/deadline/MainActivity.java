@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     SimpleCursorAdapter pillAdapter;
     Intent intent;
 
-
+    public static long userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
             FragmentManager manager = getSupportFragmentManager();
             myDialogFragment myDialogFragment = new myDialogFragment();
             myDialogFragment.show(manager, "Выбор:");
-            System.out.println(id);
+            userId = id;
+            System.out.println(userId);
         });
-
 
 
         databaseHelper = new DatabaseHelper(getApplicationContext());
