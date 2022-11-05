@@ -54,7 +54,6 @@ public class AddingActivity extends AppCompatActivity {
         data = findViewById(R.id.Data);
         time = findViewById(R.id.Time);
         save = findViewById(R.id.save);
-
         initDatePicker();
         data.setOnClickListener(new View.OnClickListener() {
             @Override
