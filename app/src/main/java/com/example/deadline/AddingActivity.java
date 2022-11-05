@@ -48,6 +48,9 @@ public class AddingActivity extends AppCompatActivity {
         name = findViewById(R.id.name);
         description = findViewById(R.id.info);
 
+        sqlHelper = new DatabaseHelper(this);
+        db = sqlHelper.getWritableDatabase();
+
         data = findViewById(R.id.Data);
         time = findViewById(R.id.Time);
         save = findViewById(R.id.save);
