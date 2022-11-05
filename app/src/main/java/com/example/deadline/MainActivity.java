@@ -23,11 +23,19 @@ public class MainActivity extends AppCompatActivity {
     Cursor pillCursor;
     SimpleCursorAdapter pillAdapter;
 
+    ListView lvProgram;
+    // Next, prepare your data set. Create two string arrays for program name and program description respectively.
+    String[] programName = {"C"};
+    String[] programDescription = {"C Description"};
+    // Define an integer array to hold the image recourse ids
+    int[] programImages = {R.drawable.galochka};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         adding =(Button) findViewById(R.id.adding);
         addIntent = new Intent(this, AddingActivity.class);
@@ -47,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
 
         databaseHelper = new DatabaseHelper(getApplicationContext());
 

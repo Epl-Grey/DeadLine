@@ -91,11 +91,12 @@
             android:id="@+id/back"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:text="Назад"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/value"
             android:layout_marginTop="650dp"
+            android:fontFamily="@font/value"
+            android:text="Назад"
+            android:onClick="backDoor"
+            android:textColor="@color/black"
+            android:textSize="20sp"
 
             />
 
