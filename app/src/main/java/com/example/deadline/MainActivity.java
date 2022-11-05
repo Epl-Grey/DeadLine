@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Cursor pillCursor;
     SimpleCursorAdapter pillAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         pillList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
                 intent.putExtra("id", id);
                 startActivity(intent);
             }
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // по нажатию на кнопку запускаем UserActivity для добавления данных
+    // по нажатию на кнопку запускаем UserActivity для добавления данных ✓
 
 
     @Override

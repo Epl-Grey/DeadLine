@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
         <activity
+            android:name=".InfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddingActivity"
             android:exported="false" />
         <activity
