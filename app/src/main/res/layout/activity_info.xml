@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InfoActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Информация"
+            android:textSize="40sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/value"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="45dp"
+            android:fontFamily="@font/value"
+            android:text="Ваша задача"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="Задача"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="90dp"
+            android:fontFamily="@font/value"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="140dp"
+            android:fontFamily="@font/value"
+            android:text="Дата и время окончания "
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/data"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="Дата"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="180dp"
+            android:fontFamily="@font/value"/>
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="Время"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="220dp"
+            android:fontFamily="@font/value"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="260dp"
+            android:fontFamily="@font/value"
+            android:text="Описание"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="300dp"
+            android:fontFamily="@font/value"
+            android:text="Описание"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/back"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="Назад"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/value"
+            android:layout_marginTop="650dp"
+
+            />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
