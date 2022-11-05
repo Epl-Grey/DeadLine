@@ -3,37 +3,245 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="vertical">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/text"-->
+<!--            android:gravity="center"-->
+<!--            android:text="DeadLine"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="40sp" />-->
+
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/adding"-->
+<!--            android:layout_width="65dp"-->
+<!--            android:layout_height="65dp"-->
+<!--            android:text="+"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_marginTop="650dp"-->
+<!--            android:layout_marginLeft="330dp" />-->
+
+<!--        <ListView-->
+<!--            android:id="@+id/listView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginTop="50dp" />-->
+
+<!--    </RelativeLayout>-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@drawable/jk"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="242dp"
+            android:clipToOutline="true"
+            app:srcCompat="@drawable/gruppe_4119__2_" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="229dp"
+            android:layout_marginTop="242dp"
+            android:clipToOutline="true"
+            app:srcCompat="@drawable/gruppe_4119__2_" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/text"
-            android:gravity="center"
-            android:text="DeadLine"
-            android:textColor="@color/black"
-            android:textSize="40sp" />
+            android:id="@+id/task2_big"
+            android:layout_width="119dp"
+            android:layout_height="19dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="251dp"
+            android:layout_marginTop="177dp"
+            android:gravity="top"
+            android:lineSpacingExtra="1sp"
+            android:text="@string/muster_proj"
+            android:textAppearance="@style/muster_proj"
+            android:translationY="-0.42sp" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/adding"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:text="+"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:layout_marginTop="650dp"
-            android:layout_marginLeft="330dp" />
+        <TextView
+            android:id="@+id/pm_"
+            android:layout_width="40dp"
+            android:layout_height="19dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="247dp"
+            android:layout_marginRight="298dp"
+            android:alpha="0.6"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="6sp"
+            android:text="@string/pm_"
+            android:textAppearance="@style/pm_"
+            android:translationY="-2.84sp" />
+
+
+        <CheckBox
+            android:id="@+id/checkBoxBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="240dp"
+            android:theme="@style/MyCheckBox" />
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/frame_5"-->
+<!--            android:layout_width="366dp"-->
+<!--            android:layout_height="272dp"-->
+<!--            android:layout_below="@+id/checkBox"-->
+<!--            android:layout_marginLeft="36dp"-->
+<!--            android:background="@drawable/frame_5"-->
+<!--            android:clipToOutline="true"-->
+<!--            android:visibility="invisible" />-->
+
+<!--        <CheckBox-->
+<!--            android:id="@+id/checkBox"-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginTop="320dp"-->
+<!--            android:theme="@style/MyCheck" />-->
 
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="50dp" />
+            android:layout_height="320dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="300dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/daily_meeti"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_marginLeft="74dp"-->
+<!--            android:layout_marginTop="329dp"-->
+<!--            android:gravity="top"-->
+<!--            android:lineSpacingExtra="3sp"-->
+<!--            android:text="@string/daily_meeti"-->
+<!--            android:textAppearance="@style/daily_meeti"-->
+<!--            android:translationY="-1.63sp" />-->
+        <CheckBox
+            android:id="@+id/checkBoxBold2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="350dp"
+            android:layout_marginTop="240dp"
+            android:theme="@style/MyCheckBox"
+            />
+        <TextView
+            android:id="@+id/pm_2"
+            android:layout_width="40dp"
+            android:layout_height="19dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="259dp"
+            android:layout_marginTop="247dp"
+            android:layout_marginRight="101dp"
+            android:alpha="0.6"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="6sp"
+            android:text="@string/pm_"
+            android:textAppearance="@style/pm_"
+            android:translationY="-2.84sp" />
+
+        <ImageButton
+            android:id="@+id/main"
+            android:layout_width="70dp"
+            android:layout_height="62dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/frame_2"
+            android:clipToOutline="true" />
+
+        <ImageButton
+            android:id="@+id/adding"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="190dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/frame_3"
+            android:clipToOutline="true" />
+        <ImageButton
+            android:id="@+id/sett"
+            android:background="@drawable/frame_4"
+            android:layout_width="65dp"
+            android:layout_height="58dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="345dp"
+            android:layout_alignParentBottom="true"
+            android:clipToOutline="true"
+            />
+
+        <TextView
+            android:id="@+id/todo"
+            android:layout_width="69dp"
+            android:layout_height="34dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="66dp"
+            android:gravity="top"
+            android:lineSpacingExtra="1sp"
+            android:text="@string/todo"
+            android:textAppearance="@style/todo"
+            android:translationY="-0.66sp" />
+
+        <TextView
+            android:id="@+id/today"
+            android:layout_width="50dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="192dp"
+            android:layout_marginTop="70dp"
+            android:gravity="top"
+            android:lineSpacingExtra="0sp"
+            android:text="@string/today"
+            android:textAppearance="@style/today" />
+
+        <TextView
+            android:id="@+id/task1_big"
+            android:layout_width="119dp"
+            android:layout_height="19dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="177dp"
+            android:gravity="top"
+            android:lineSpacingExtra="1sp"
+            android:text="@string/muster_proj"
+            android:textAppearance="@style/muster_proj"
+            android:translationY="-0.42sp" />
+
 
     </RelativeLayout>
 

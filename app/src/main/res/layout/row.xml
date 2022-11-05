@@ -8,7 +8,7 @@
         android:id="@+id/text1"
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:text=" "
+        android:text=""
         android:textSize="15sp"
         android:textColor="@color/color_green"/>
 
@@ -16,7 +16,7 @@
         android:id="@+id/text2"
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:text=" "
+        android:text=""
         android:textSize="15sp"
         android:textColor="@color/color_green"/>
 </LinearLayout>

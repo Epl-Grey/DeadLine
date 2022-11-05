@@ -10,13 +10,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    Button adding;
+    ImageButton adding;
     Intent addIntent;
 
     ListView pillList;
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         // определяем, какие столбцы из курсора будут выводиться в ListView
         String[] headers = new String[]{DatabaseHelper.COLUMN_NAME, DatabaseHelper.COLUMN_DATE};
         // создаем адаптер, передаем в него курсор
-        pillAdapter = new SimpleCursorAdapter(this,R.layout.row,
+        pillAdapter = new SimpleCursorAdapter(this, android.R.layout.two_line_list_item,
                 pillCursor, headers, new int[]{android.R.id.text1, android.R.id.text2}, 0);
         pillList.setAdapter(pillAdapter);
 

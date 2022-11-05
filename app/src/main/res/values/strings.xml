@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">DeadLine</string>
+    <string name="todo">ToDo</string>
+    <string name="today">Today</string>
+    <string name="muster_proj">Занятие</string>
+    <string name="pm_">22.01 10:30</string>
+    <string name="daily_meeti">Занятие</string>
+    <string name="Sett">Settings</string>
+    <string name="some_id">Тема</string>
+    <string name="some_i">Поддержка</string>
 </resources>
