@@ -39,7 +39,7 @@ public class InfoActivity extends AppCompatActivity {
 
 
         userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE + " where " +
-                DatabaseHelper.COLUMN_ID + "=?", new String[]{String.valueOf(userId)});
+                DatabaseHelper.COLUMN_ID + "=?", new String[]{Long.toString(userId)});
         userCursor.moveToFirst();
         name.setText(userCursor.getString(1));
         data.setText(userCursor.getString(2));

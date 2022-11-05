@@ -2,10 +2,13 @@ package com.example.deadline;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -37,7 +40,7 @@ public class AddingActivity extends AppCompatActivity {
 
     DatabaseHelper sqlHelper;
     SQLiteDatabase db;
-    Cursor userCursor;
+    Cursor dateCursor;
     long userId = 0;
 
     @Override
@@ -73,8 +76,7 @@ public class AddingActivity extends AppCompatActivity {
 
     }
 
-    private void initDatePicker()
-    {
+    private void initDatePicker() {
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener()
         {
             @Override
@@ -98,13 +100,11 @@ public class AddingActivity extends AppCompatActivity {
 
     }
 
-    private String makeDateString(int day, int month, int year)
-    {
+    private String makeDateString(int day, int month, int year) {
         return month + "." + day + "." + year;
     }
 
-    public void openDatePicker(View view)
-    {
+    public void openDatePicker(View view) {
         datePickerDialog.show();
     }
 
@@ -140,9 +140,44 @@ public class AddingActivity extends AppCompatActivity {
         toast.show();
 
         db.insert(DatabaseHelper.TABLE, DatabaseHelper.COLUMN_INFO, values);
+        setNotificationAlarm();
         getToMainRes();
 
     }
+
+    void setNotificationAlarm(){
+        db = sqlHelper.getReadableDatabase();
+
+        //получаем данные из бд в виде курсора
+        dateCursor = db.rawQuery("SELECT " + DatabaseHelper.COLUMN_DATE + "" +  " FROM " + DatabaseHelper.TABLE +" ORDER BY " + DatabaseHelper.COLUMN_DATE + " ASC", null);
+        System.out.println("SELECT " + DatabaseHelper.COLUMN_DATE + " FROM " + DatabaseHelper.TABLE +" ORDER BY " + DatabaseHelper.COLUMN_DATE + " ASC");
+        dateCursor.moveToFirst();
+
+        for (int i=1;i<=dateCursor.getCount();i++){
+            System.out.println(dateCursor.getString(0));
+        }
+
+        if(dateCursor.getCount()>0){
+            String dateArray[] = dateCursor.getString(0).split(":");
+            int hours = Integer.parseInt(dateArray[0]);
+            int minutes = Integer.parseInt(dateArray[1]);
+
+            Toast.makeText(this, "Alarm time: " + dateCursor.getString(0), Toast.LENGTH_SHORT).show();
+
+            AlarmManager manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+            Intent alarmIntent = new Intent(AddingActivity.this, AlarmReceiver.class);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(System.currentTimeMillis());
+            calendar.add(Calendar.HOUR, 24);
+            long time = calendar.getTimeInMillis();
+
+            manager.set(AlarmManager.RTC_WAKEUP, time, pendingIntent);
+        }
+    }
+
+
 
     private void getToMainRes(){
         // закрываем подключение
