@@ -149,7 +149,7 @@ public class AddingActivity extends AppCompatActivity {
         db = sqlHelper.getReadableDatabase();
 
         //получаем данные из бд в виде курсора
-        dateCursor = db.rawQuery("SELECT " + DatabaseHelper.COLUMN_DATE + "" +  " FROM " + DatabaseHelper.TABLE +" ORDER BY " + DatabaseHelper.COLUMN_DATE + " ASC", null);
+        dateCursor = db.rawQuery("SELECT " + DatabaseHelper.COLUMN_DATE  +  " FROM " + DatabaseHelper.TABLE +" ORDER BY " + DatabaseHelper.COLUMN_DATE + " ASC", null);
         System.out.println("SELECT " + DatabaseHelper.COLUMN_DATE + " FROM " + DatabaseHelper.TABLE +" ORDER BY " + DatabaseHelper.COLUMN_DATE + " ASC");
         dateCursor.moveToFirst();
 
