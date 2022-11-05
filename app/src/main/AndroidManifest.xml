@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
+
+        <receiver android:name=".AlarmReceiver" >
+        </receiver>
+
         <activity
             android:name=".AddingActivity"
             android:exported="false" />
