@@ -13,9 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
-
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -48,6 +46,7 @@ public class AddingActivity extends AppCompatActivity {
         data = findViewById(R.id.Data);
         time = findViewById(R.id.Time);
         save = findViewById(R.id.save);
+
         initDatePicker();
         data.setOnClickListener(view -> openDatePicker(data));
 
@@ -55,6 +54,7 @@ public class AddingActivity extends AppCompatActivity {
 
 
     }
+
 
     private void initDatePicker()
     {
