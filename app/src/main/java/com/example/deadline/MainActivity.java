@@ -64,14 +64,13 @@ public class MainActivity extends AppCompatActivity {
         // определяем, какие столбцы из курсора будут выводиться в ListView
         String[] headers = new String[]{DatabaseHelper.COLUMN_NAME, DatabaseHelper.COLUMN_DATE};
         // создаем адаптер, передаем в него курсор
-        pillAdapter = new SimpleCursorAdapter(this, android.R.layout.two_line_list_item,
+        pillAdapter = new SimpleCursorAdapter(this,R.layout.row,
                 pillCursor, headers, new int[]{android.R.id.text1, android.R.id.text2}, 0);
         pillList.setAdapter(pillAdapter);
 
 
     }
 
-    // по нажатию на кнопку запускаем UserActivity для добавления данных ✓
 
 
     @Override

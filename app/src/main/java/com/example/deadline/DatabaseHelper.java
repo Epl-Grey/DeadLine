@@ -13,10 +13,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_DATE = "date";
     public static final String COLUMN_TIME = "time";
     public static final String COLUMN_INFO = "info";
+    public static final String COLUMN_REASON = "reason";
+    public static final String COLUMN_DESC = "description";
 
 
     public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 6);
+        super(context, DATABASE_NAME, null, 7);
     }
 
     @Override
@@ -27,7 +29,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_NAME + " TEXT, "
                 + COLUMN_DATE + " TEXT, "
                 + COLUMN_TIME + " TEXT, "
-                + COLUMN_INFO + " TEXT );");
+                + COLUMN_INFO + " TEXT, "
+                + COLUMN_REASON + " TEXT, "
+                + COLUMN_DESC + " TEXT );");
     }
 
     @Override

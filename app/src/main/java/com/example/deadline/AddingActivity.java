@@ -76,7 +76,8 @@ public class AddingActivity extends AppCompatActivity {
 
     }
 
-    private void initDatePicker() {
+    private void initDatePicker()
+    {
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener()
         {
             @Override
@@ -100,11 +101,13 @@ public class AddingActivity extends AppCompatActivity {
 
     }
 
-    private String makeDateString(int day, int month, int year) {
+    private String makeDateString(int day, int month, int year)
+    {
         return month + "." + day + "." + year;
     }
 
-    public void openDatePicker(View view) {
+    public void openDatePicker(View view)
+    {
         datePickerDialog.show();
     }
 
@@ -140,7 +143,6 @@ public class AddingActivity extends AppCompatActivity {
         toast.show();
 
         db.insert(DatabaseHelper.TABLE, DatabaseHelper.COLUMN_INFO, values);
-        setNotificationAlarm();
         getToMainRes();
 
     }
@@ -170,7 +172,7 @@ public class AddingActivity extends AppCompatActivity {
 
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(System.currentTimeMillis());
-            calendar.add(Calendar.HOUR, 24);
+            calendar.add(Calendar.SECOND, 2);
             long time = calendar.getTimeInMillis();
 
             manager.set(AlarmManager.RTC_WAKEUP, time, pendingIntent);
