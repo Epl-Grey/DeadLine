@@ -3,13 +3,16 @@ package com.example.deadline;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,12 +27,11 @@ public class MainActivity extends AppCompatActivity {
     Intent intent;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
 
         adding =findViewById(R.id.adding);
         addIntent = new Intent(this, AddingActivity.class);
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             FragmentManager manager = getSupportFragmentManager();
             myDialogFragment myDialogFragment = new myDialogFragment();
             myDialogFragment.show(manager, "Выбор:");
+            System.out.println(id);
         });
 
 
@@ -79,9 +82,13 @@ public class MainActivity extends AppCompatActivity {
         pillCursor.close();
     }
 
-    public void intentFragment() {
 
-        startActivity(intent);
+    public void intentId(long userId) {
+        Bundle extras = getIntent().getExtras();
+        userId = extras.getLong("id");
+
+
+
     }
 
 }
