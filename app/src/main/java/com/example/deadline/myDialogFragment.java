@@ -28,7 +28,8 @@ public class myDialogFragment extends DialogFragment {
         builder.setMessage(message); // сообщение
         builder.setPositiveButton(button1String, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-
+                Intent intent = new Intent(getContext(), InfoActivity.class);
+                startActivity(intent);
 
             }
         });

@@ -3,6 +3,7 @@ package com.example.deadline;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,7 @@ public class InfoActivity extends AppCompatActivity {
 
     DatabaseHelper sqlHelper;
     SQLiteDatabase db;
+    Cursor userCursor;
     long userId=0;
 
     @Override
@@ -32,19 +34,19 @@ public class InfoActivity extends AppCompatActivity {
         sqlHelper = new DatabaseHelper(this);
         db = sqlHelper.getWritableDatabase();
 
-//        Bundle extras = getIntent().getExtras();
-//        if (extras != null) {
-//            userId = extras.getLong("id");
-//        }
-//
-//        userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE + " where " +
-//                DatabaseHelper.COLUMN_ID + "=?", new String[]{String.valueOf(userId)});
-//        userCursor.moveToFirst();
-//        name.setText(userCursor.getString(1));
-//        data.setText(userCursor.getString(2));
-//        time.setText(userCursor.getString(3));
-//        info.setText(userCursor.getString(4));
-//        userCursor.close();
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            userId = extras.getLong("id");
+        }
+
+        userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE + " where " +
+                DatabaseHelper.COLUMN_ID + "=?", new String[]{String.valueOf(userId)});
+        userCursor.moveToFirst();
+        name.setText(userCursor.getString(1));
+        data.setText(userCursor.getString(2));
+        time.setText(userCursor.getString(3));
+        info.setText(userCursor.getString(4));
+        userCursor.close();
 
     }
 
