@@ -16,7 +16,7 @@
             android:textSize="40sp"
             android:textColor="@color/black"
             android:gravity="center"
-            android:fontFamily="@font/texttime"/>
+            android:fontFamily="@font/text"/>
 
         <EditText
             android:id="@+id/name"

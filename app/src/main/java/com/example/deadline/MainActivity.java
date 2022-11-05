@@ -1,13 +1,12 @@
 package com.example.deadline;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -22,13 +21,8 @@ public class MainActivity extends AppCompatActivity {
     SQLiteDatabase db;
     Cursor pillCursor;
     SimpleCursorAdapter pillAdapter;
+    Intent intent;
 
-    ListView lvProgram;
-    // Next, prepare your data set. Create two string arrays for program name and program description respectively.
-    String[] programName = {"C"};
-    String[] programDescription = {"C Description"};
-    // Define an integer array to hold the image recourse ids
-    int[] programImages = {R.drawable.galochka};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,23 +31,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        adding =(Button) findViewById(R.id.adding);
+        adding =findViewById(R.id.adding);
         addIntent = new Intent(this, AddingActivity.class);
-        adding.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(addIntent);
-            }
-        });
+        adding.setOnClickListener(view -> startActivity(addIntent));
 
         pillList = findViewById(R.id.listView);
-        pillList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
-                intent.putExtra("id", id);
-                startActivity(intent);
-            }
+        pillList.setOnItemClickListener((parent, view, position, id) -> {
+            intent = new Intent(getApplicationContext(), InfoActivity.class);
+            intent.putExtra("id", id);
+            FragmentManager manager = getSupportFragmentManager();
+            myDialogFragment myDialogFragment = new myDialogFragment();
+            myDialogFragment.show(manager, "Выбор:");
         });
 
 
@@ -89,6 +77,11 @@ public class MainActivity extends AppCompatActivity {
         // Закрываем подключение и курсор
         db.close();
         pillCursor.close();
+    }
+
+    public void intentFragment() {
+
+        startActivity(intent);
     }
 
 }
